@@ -63,7 +63,7 @@ This Book Collection Management App is a React application that allows users to 
 ## RouteGuard: Advanced Protected Route System
 
 - The `RouteGuard` component is used for route protection.
-- Takes `requireAuth` prop:
+- Takes required Auth props:
   - If `true`, only logged-in users can access the route (protected).
   - If `false`, only non-logged-in users can access the route (login and signup).
 
