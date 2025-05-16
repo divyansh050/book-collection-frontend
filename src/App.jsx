@@ -12,6 +12,7 @@ import ErrorPage from "./pages/ErrorPage";
 import LoadingSpinner from "./Components/LoadingSpinner";
 import RouteGuard from "./Components/RouteGuard";
 import ErrorBoundary from "./ErrorBoundry";
+import ScrollToTop from "./Components/ScrollToTop";
 
 function App() {
   const { authReady, isLoggedIn, loading } = useAuth();
@@ -25,72 +26,74 @@ function App() {
     <>
       <Navbar />
       <ErrorBoundary>
-        <Routes>
-          <Route element={<Home />} path="/" />
-          <Route
-            element={
-              <RouteGuard
-                isAllowed={isLoggedIn}
-                loading={loading}
-                navigateTo="/login"
-              >
-                <BookList />
-              </RouteGuard>
-            }
-            path="/booklist"
-          />
-          <Route
-            element={
-              <RouteGuard
-                isAllowed={isLoggedIn}
-                loading={loading}
-                navigateTo="/login"
-              >
-                <EditBook />
-              </RouteGuard>
-            }
-            path="/editbook/:id"
-          />
-          <Route
-            element={
-              <RouteGuard
-                isAllowed={isLoggedIn}
-                loading={loading}
-                navigateTo="/login"
-              >
-                <AddBook />
-              </RouteGuard>
-            }
-            path="/addbook"
-          />
-          <Route
-            element={
-              <RouteGuard
-                isAllowed={!isLoggedIn}
-                loading={loading}
-                navigateTo="/"
-              >
-                <Login />
-              </RouteGuard>
-            }
-            path="/login"
-          />
-          <Route
-            element={
-              <RouteGuard
-                isAllowed={!isLoggedIn}
-                loading={loading}
-                navigateTo="/"
-              >
-                <Signup />
-              </RouteGuard>
-            }
-            path="/signup"
-          />
+        <ScrollToTop>
+          <Routes>
+            <Route element={<Home />} path="/" />
+            <Route
+              element={
+                <RouteGuard
+                  isAllowed={isLoggedIn}
+                  loading={loading}
+                  navigateTo="/login"
+                >
+                  <BookList />
+                </RouteGuard>
+              }
+              path="/booklist"
+            />
+            <Route
+              element={
+                <RouteGuard
+                  isAllowed={isLoggedIn}
+                  loading={loading}
+                  navigateTo="/login"
+                >
+                  <EditBook />
+                </RouteGuard>
+              }
+              path="/editbook/:id"
+            />
+            <Route
+              element={
+                <RouteGuard
+                  isAllowed={isLoggedIn}
+                  loading={loading}
+                  navigateTo="/login"
+                >
+                  <AddBook />
+                </RouteGuard>
+              }
+              path="/addbook"
+            />
+            <Route
+              element={
+                <RouteGuard
+                  isAllowed={!isLoggedIn}
+                  loading={loading}
+                  navigateTo="/"
+                >
+                  <Login />
+                </RouteGuard>
+              }
+              path="/login"
+            />
+            <Route
+              element={
+                <RouteGuard
+                  isAllowed={!isLoggedIn}
+                  loading={loading}
+                  navigateTo="/"
+                >
+                  <Signup />
+                </RouteGuard>
+              }
+              path="/signup"
+            />
 
-          {/* Catch-all route */}
-          <Route path="*" element={<ErrorPage />} />
-        </Routes>
+            {/* Catch-all route */}
+            <Route path="*" element={<ErrorPage />} />
+          </Routes>
+        </ScrollToTop>
       </ErrorBoundary>
     </>
   );
