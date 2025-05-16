@@ -26,74 +26,73 @@ function App() {
     <>
       <Navbar />
       <ErrorBoundary>
-        <ScrollToTop>
-          <Routes>
-            <Route element={<Home />} path="/" />
-            <Route
-              element={
-                <RouteGuard
-                  isAllowed={isLoggedIn}
-                  loading={loading}
-                  navigateTo="/login"
-                >
-                  <BookList />
-                </RouteGuard>
-              }
-              path="/booklist"
-            />
-            <Route
-              element={
-                <RouteGuard
-                  isAllowed={isLoggedIn}
-                  loading={loading}
-                  navigateTo="/login"
-                >
-                  <EditBook />
-                </RouteGuard>
-              }
-              path="/editbook/:id"
-            />
-            <Route
-              element={
-                <RouteGuard
-                  isAllowed={isLoggedIn}
-                  loading={loading}
-                  navigateTo="/login"
-                >
-                  <AddBook />
-                </RouteGuard>
-              }
-              path="/addbook"
-            />
-            <Route
-              element={
-                <RouteGuard
-                  isAllowed={!isLoggedIn}
-                  loading={loading}
-                  navigateTo="/"
-                >
-                  <Login />
-                </RouteGuard>
-              }
-              path="/login"
-            />
-            <Route
-              element={
-                <RouteGuard
-                  isAllowed={!isLoggedIn}
-                  loading={loading}
-                  navigateTo="/"
-                >
-                  <Signup />
-                </RouteGuard>
-              }
-              path="/signup"
-            />
+        <ScrollToTop />
+        <Routes>
+          <Route element={<Home />} path="/" />
+          <Route
+            element={
+              <RouteGuard
+                isAllowed={isLoggedIn}
+                loading={loading}
+                navigateTo="/login"
+              >
+                <BookList />
+              </RouteGuard>
+            }
+            path="/booklist"
+          />
+          <Route
+            element={
+              <RouteGuard
+                isAllowed={isLoggedIn}
+                loading={loading}
+                navigateTo="/login"
+              >
+                <EditBook />
+              </RouteGuard>
+            }
+            path="/editbook/:id"
+          />
+          <Route
+            element={
+              <RouteGuard
+                isAllowed={isLoggedIn}
+                loading={loading}
+                navigateTo="/login"
+              >
+                <AddBook />
+              </RouteGuard>
+            }
+            path="/addbook"
+          />
+          <Route
+            element={
+              <RouteGuard
+                isAllowed={!isLoggedIn}
+                loading={loading}
+                navigateTo="/"
+              >
+                <Login />
+              </RouteGuard>
+            }
+            path="/login"
+          />
+          <Route
+            element={
+              <RouteGuard
+                isAllowed={!isLoggedIn}
+                loading={loading}
+                navigateTo="/"
+              >
+                <Signup />
+              </RouteGuard>
+            }
+            path="/signup"
+          />
 
-            {/* Catch-all route */}
-            <Route path="*" element={<ErrorPage />} />
-          </Routes>
-        </ScrollToTop>
+          {/* Catch-all route */}
+          <Route path="*" element={<ErrorPage />} />
+        </Routes>
       </ErrorBoundary>
     </>
   );
