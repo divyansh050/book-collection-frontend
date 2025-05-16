@@ -1,5 +1,5 @@
 import { useAuth } from "../context/AuthContext";
-import { useNavigate } from "react-router";
+import { Link, useNavigate } from "react-router";
 import Button from "../Components/Button";
 
 function Home() {
@@ -51,9 +51,12 @@ function Home() {
           <p className="text-gray-400 mt-4">
             Please log in to manage your book collection. If you don't have an
             account,{" "}
-            <a href="/signup" className="text-yellow-400 hover:text-yellow-500">
+            <Link
+              to="/signup"
+              className="text-yellow-400 hover:text-yellow-500 transition-all"
+            >
               Sign up
-            </a>
+            </Link>
             .
           </p>
         </div>
