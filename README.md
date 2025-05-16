@@ -18,6 +18,7 @@ This Book Collection Management App is a React application that allows users to 
 - Smooth UI without flickering when showing/hiding error messages.
 - Text truncation using CSS (line-clamp, ellipsis) with title attribute for accessibility.
 - Two views in Book List: Column and Card view.
+- Error boundry support for js errors
 
 ## Pages
 
