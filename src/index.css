@@ -1,0 +1,7 @@
+@import "tailwindcss";
+
+#root {
+  text-align: center;
+  padding-top: 72px;
+  background-color: oklch(21% 0.034 264.665);
+}
